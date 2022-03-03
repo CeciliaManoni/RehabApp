@@ -9,8 +9,8 @@ import java.time.Duration
 
 abstract class Base: AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
     fun Context.toast(context: Context=applicationContext, message:String, duration: Int = Toast.LENGTH_SHORT){
