@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "891186604092",
+    "project_id": "rehabapp-87605",
+    "storage_bucket": "rehabapp-87605.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891186604092:android:77ec3f988d83aa08f17b39",
+        "android_client_info": {
+          "package_name": "com.cecilia.apprehabilitacion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891186604092-6ggeg7c0rqiuvhd723cqsmihrqqrb4dq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdtWf2r5gPQfQan83dwFslyAOshVDI3XQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891186604092-6ggeg7c0rqiuvhd723cqsmihrqqrb4dq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
