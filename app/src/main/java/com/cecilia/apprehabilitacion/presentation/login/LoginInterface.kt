@@ -2,10 +2,19 @@ package com.cecilia.apprehabilitacion.presentation.login
 
 interface LoginInterface {
 
-    interface View{
+    interface LoginView{
         fun showError(msgError:String)
         fun singIn()
-        fun forgotpsw()
-        fun singUp()
+        fun navigateToPassword()
+        fun navigateToRegister()
+        fun navigateToInstitution()
+    }
+
+    interface Presenter{
+        fun attachView(view: LoginView)
+        fun dettachView()
+        fun isViewAttached():Boolean
+        fun singInUserWithEmailAndPassword(email:String, password:String)
+        fun emptyFields(email:String, password:String):Boolean
     }
 }

@@ -11,9 +11,10 @@ abstract class Base: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
-    fun Context.toast(context: Context=applicationContext, message:String, duration: Int = Toast.LENGTH_SHORT){
+    fun Toast(context: Context=applicationContext, message:String, duration: Int = Toast.LENGTH_SHORT){
         Toast.makeText(context, message, duration).show()
     }
 }
