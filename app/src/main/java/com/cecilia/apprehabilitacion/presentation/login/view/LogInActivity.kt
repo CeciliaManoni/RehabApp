@@ -8,6 +8,7 @@ import com.cecilia.apprehabilitacion.domain.interactor.loginInteractor.SingInInt
 import com.cecilia.apprehabilitacion.presentation.institution.view.Institutionact
 import com.cecilia.apprehabilitacion.presentation.login.LoginInterface
 import com.cecilia.apprehabilitacion.presentation.login.presenter.LoginPresenter
+import com.cecilia.apprehabilitacion.presentation.registerprofesional.view.RegisterProfesional
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LogInActivity : Base(), LoginInterface.LoginView {
@@ -17,10 +18,20 @@ class LogInActivity : Base(), LoginInterface.LoginView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
         presenter = LoginPresenter(SingInInteractorImpl())
         presenter.attachView(this)
+
         btn_singin.setOnClickListener {
             singIn()
+        }
+
+        txt_register.setOnClickListener {
+            navigateToRegister()
+        }
+
+        txt_forgotpsw.setOnClickListener {
+            navigateToPassword()
         }
     }
 
@@ -37,15 +48,19 @@ class LogInActivity : Base(), LoginInterface.LoginView {
     }
 
     override fun navigateToInstitution() {
-        startActivity(Intent(this,Institutionact::class.java))
+        val intent = Intent(this, Institutionact::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
     }
-    
+
     override fun navigateToPassword() {
 
     }
 
     override fun navigateToRegister() {
-
+        val intent = Intent(this, RegisterProfesional::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
     }
 
 
