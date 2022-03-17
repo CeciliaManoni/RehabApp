@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/nombre_profesional2"
+        android:id="@+id/name_institution"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -17,20 +20,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+        app:layout_constraintTop_toBottomOf="@+id/etxAddInstitution" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/etxAddInstitution"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Agregar otra institución"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_instituciones" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_institution" />
 
     <Spinner
-        android:id="@+id/spinner_instituciones"
+        android:id="@+id/spinner_institution"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -46,12 +49,12 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:text="Institución de trabajo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintHorizontal_bias="0.354"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_calendario" />
+        app:layout_constraintTop_toBottomOf="@+id/txtBirthDay" />
 
     <Spinner
         android:id="@+id/spinner_profesiones"
@@ -77,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_provincias" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_province" />
 
     <TextView
         android:id="@+id/textView13"
@@ -88,7 +91,7 @@
         android:text="Ciudad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_provincias" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_province" />
 
     <TextView
         android:id="@+id/textView12"
@@ -99,7 +102,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.286"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre_profesional" />
+        app:layout_constraintTop_toBottomOf="@+id/name_profesional" />
 
     <TextView
         android:id="@+id/textView9"
@@ -139,13 +142,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <Button
-        android:id="@+id/btn_calendario"
+        android:id="@+id/btn_calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="calendario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintHorizontal_bias="0.771"
+        app:layout_constraintStart_toEndOf="@+id/txtBirthDay"
         app:layout_constraintTop_toBottomOf="@+id/spinner_profesiones" />
 
     <TextView
@@ -167,10 +171,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre_profesional2" />
+        app:layout_constraintTop_toBottomOf="@+id/name_institution" />
 
     <EditText
-        android:id="@+id/nombre_profesional"
+        android:id="@+id/name_profesional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -182,7 +186,7 @@
         app:layout_constraintTop_toBottomOf="@+id/id_profesional" />
 
     <Spinner
-        android:id="@+id/spinner_provincias"
+        android:id="@+id/spinner_province"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -194,7 +198,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <Spinner
-        android:id="@+id/spinner_ciudades"
+        android:id="@+id/spinner_city"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -206,7 +210,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
-        android:id="@+id/password_profesiona1"
+        android:id="@+id/password_profesional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -229,6 +233,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_profesiona1" />
+        app:layout_constraintTop_toBottomOf="@+id/password_profesional" />
+
+    <TextView
+        android:id="@+id/txtBirthDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -6,6 +6,9 @@ interface RegisterProfesionalInteractor {
         fun onRegisterFailure(errorMsg: String)
 
     }
+    interface SpinnerCallback{
+
+    }
 
     fun signUp(fullname: String,email: String, password: String,listener: RegisterCallback)
 

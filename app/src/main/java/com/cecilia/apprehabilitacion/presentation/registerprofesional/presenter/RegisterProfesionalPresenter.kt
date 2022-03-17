@@ -41,15 +41,24 @@ class RegisterProfesionalPresenter(registerProfesionalInteractor: RegisterProfes
         })
     }
 
-    override fun checkEmptyFields(email: String, password: String): Boolean {
-        return email.isEmpty() or password.isEmpty()
+    override fun checkEmptyFields(fullname: String, birth:String, id:String, inst:String): Boolean {
+        return fullname.isEmpty() or id.isEmpty() or inst.isEmpty()
+    }
+
+    override fun checkSpinnersContent(
+        province: String,
+        city: String,
+        profesion: String,
+        inst: String
+    ) {
+        TODO("Not yet implemented")
     }
 
     override fun checkValidEmail(email: String): Boolean {
         return PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-    override fun checkEmptyPassword(pw1: String, pw2: String): Boolean {
+    override fun checkEmptyPasswordAndEmail(pw1: String, pw2: String, email: String): Boolean {
         return pw1.isEmpty() or pw2.isEmpty()
     }
 
