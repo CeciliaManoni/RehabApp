@@ -1,10 +1,11 @@
 package com.cecilia.apprehabilitacion.presentation.registerprofesional
 
+import com.cecilia.apprehabilitacion.domain.interactor.registerProfesionalInteractor.RegisterProfesionalInteractor
 import com.cecilia.apprehabilitacion.presentation.login.LoginInterface
 
 interface RegisterProfesionalInterface {
 
-    interface RegisterProfView{
+    interface RegisterProfView {
         fun showError(msgError:String)
         fun singUp()
         fun navigateToInstitution()
