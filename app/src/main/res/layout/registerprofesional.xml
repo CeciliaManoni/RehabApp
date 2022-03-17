@@ -36,6 +36,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:minHeight="48dp"
+        android:contentDescription ="Nombre de la institución"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +60,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:minHeight="48dp"
+        android:contentDescription="Nombre del profesional"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -186,6 +188,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:minHeight="48dp"
+        android:contentDescription ="Seleccione su provincia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -197,6 +200,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:minHeight="48dp"
+        android:contentDescription ="Seleccione su ciudad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
