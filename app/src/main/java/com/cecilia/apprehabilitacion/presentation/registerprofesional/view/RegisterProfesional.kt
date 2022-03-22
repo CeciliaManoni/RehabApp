@@ -16,6 +16,13 @@ import java.util.*
 class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfView  {
 
     lateinit var presenter:RegisterProfesionalPresenter
+    lateinit var email:String
+    lateinit var psw1:String
+    lateinit var psw2:String
+    lateinit var fullname:String
+    lateinit var id:String
+    lateinit var institutionName:String
+    lateinit var birth:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,14 +31,13 @@ class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfVie
         presenter = RegisterProfesionalPresenter(RegisterProfesionalInteractorImpl())
         presenter.attachView(this)
 
-        btn_profesional.setOnClickListener {
-            singUp()
-        }
-
         btn_calendar.setOnClickListener {
             setDate()
         }
-
+        btn_profesional.setOnClickListener {
+            singUp()
+            //profileInformation()
+        }
         etxAddInstitution.setOnClickListener {
             addInstitution()
         }
@@ -47,13 +53,10 @@ class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfVie
     }
 
     override fun profileInformation() {
-        TODO("Not yet implemented")
+        presenter.profileInformation(fullname,email,psw1,id,birth)
     }
 
     override fun setDate() {
-        //val birth:String = txtBirthDay.text.toString().trim()
-        //presenter.setDate(birth)
-
         //Objeto tipo calendar
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
@@ -70,13 +73,13 @@ class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfVie
     }
 
     override fun singUp() {
-        val email:String = email_profesional.text.toString().trim()
-        val psw1:String = password_profesional.text.toString().trim()
-        val psw2:String = password_profesional_check.text.toString().trim()
-        val fullname:String = name_profesional.text.toString().trim()
-        val id:String = id_profesional.text.toString().trim()
-        val institutionName:String = name_institution.text.toString().trim()
-        val birth:String = txtBirthDay.text.toString().trim()
+        email = email_profesional.text.toString().trim()
+        psw1 = password_profesional.text.toString().trim()
+        psw2 = password_profesional_check.text.toString().trim()
+        fullname = name_profesional.text.toString().trim()
+        id = id_profesional.text.toString().trim()
+        institutionName = name_institution.text.toString().trim()
+        birth = txtBirthDay.text.toString().trim()
 
         if (presenter.checkEmptyFields(fullname,birth,id,institutionName)){
             name_institution.error = "Campo vacío"
@@ -111,7 +114,6 @@ class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfVie
        // name_institution.visibility = View.INVISIBLE
 
         presenter.singUp(fullname,email,psw1)
-        presenter.profileInformation()
     }
 
     override fun navigateToInstitution() {

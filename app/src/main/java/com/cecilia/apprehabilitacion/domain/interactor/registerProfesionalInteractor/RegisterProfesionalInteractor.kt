@@ -2,20 +2,18 @@ package com.cecilia.apprehabilitacion.domain.interactor.registerProfesionalInter
 
 interface RegisterProfesionalInteractor {
     interface RegisterCallback{
-        fun onRegisterSucces()
+        fun onRegisterSuccess()
         fun onRegisterFailure(errorMsg: String)
 
     }
-
-    fun signUp(fullname: String,email: String, password: String,listener: RegisterCallback)
-
     interface ProfileInformationCallback{
-        fun onProfileSucces()
+        fun onProfileSuccess()
         fun onProfileFailure(errorMsg: String)
 
     }
 
+    fun signUp(fullname: String,email: String, password: String,listener: RegisterCallback)
     fun profileInformation(fullname: String, email: String, password: String,
-                           id: String, listener: ProfileInformationCallback)
+                           id: String, birth:String, listener: ProfileInformationCallback)
 
 }

@@ -20,7 +20,7 @@ interface RegisterProfesionalInterface {
         fun detachView()
         fun isViewAttached():Boolean
         fun singUp(fullname:String, email:String, password:String)
-        fun profileInformation()
+        fun profileInformation(fullname:String,email:String,psw:String,id:String,birth:String)
         fun checkEmptyDate(birth: String):Boolean
         fun checkEmptyFields(fullname: String, birth:String, id:String, inst:String):Boolean
         fun checkSpinnersContent(province:String, city:String, profesion:String, inst:String)

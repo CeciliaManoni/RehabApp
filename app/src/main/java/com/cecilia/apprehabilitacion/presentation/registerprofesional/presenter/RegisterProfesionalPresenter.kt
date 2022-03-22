@@ -1,57 +1,57 @@
 package com.cecilia.apprehabilitacion.presentation.registerprofesional.presenter
 
-import android.app.DatePickerDialog
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.core.util.PatternsCompat
+import com.cecilia.apprehabilitacion.base.Base
 import com.cecilia.apprehabilitacion.domain.interactor.registerProfesionalInteractor.RegisterProfesionalInteractor
 import com.cecilia.apprehabilitacion.domain.interactor.registerProfesionalInteractor.RegisterProfesionalInteractor.RegisterCallback
 import com.cecilia.apprehabilitacion.presentation.registerprofesional.RegisterProfesionalInterface
-import com.cecilia.apprehabilitacion.presentation.registerprofesional.view.RegisterProfesional
-import kotlinx.android.synthetic.main.registerprofesional.view.*
-import java.security.AccessController.getContext
-import java.util.*
 
-class RegisterProfesionalPresenter(registerProfessionalInteractor: RegisterProfesionalInteractor):RegisterProfesionalInterface.RegisterProfPresenter {
+class RegisterProfesionalPresenter(registerProfessionalInteractor: RegisterProfesionalInteractor): RegisterProfesionalInterface.RegisterProfPresenter {
 
-    var viewOriginal:RegisterProfesionalInterface.RegisterProfView? = null
-    var viewDate: RegisterProfesionalPresenter? = null
+    var view:RegisterProfesionalInterface.RegisterProfView? = null
     var registerProfessionalInteractor: RegisterProfesionalInteractor? = null
-    var monthG = 0
-    var yearG = 0
-    var dayG = 0
 
     init {
         this.registerProfessionalInteractor = registerProfessionalInteractor
     }
 
     override fun attachView(view: RegisterProfesionalInterface.RegisterProfView) {
-        this.viewOriginal = view
+        this.view = view
     }
 
     override fun detachView() {
-        viewOriginal = null
+        view = null
     }
 
     override fun isViewAttached(): Boolean {
-        return viewOriginal != null
+        return view != null
     }
 
     override fun singUp(fullname: String, email: String, password: String) {
         registerProfessionalInteractor?.signUp(fullname,email,password,object: RegisterCallback{
-            override fun onRegisterSucces() {
-                viewOriginal?.navigateToInstitution()
+            override fun onRegisterSuccess() {
+                view?.profileInformation()
             }
 
             override fun onRegisterFailure(errorMsg: String) {
-                viewOriginal?.showError(errorMsg)
+                view?.showError(errorMsg)
             }
 
         })
     }
 
-    override fun profileInformation() {
-        TODO("Not yet implemented")
+    override fun profileInformation(fullname:String,email:String,psw:String,id:String,birth:String) {
+        registerProfessionalInteractor?.profileInformation(fullname,email,psw,id,birth,object:
+            RegisterProfesionalInteractor.ProfileInformationCallback {
+            override fun onProfileSuccess() {
+                view?.navigateToInstitution()
+            }
+
+            override fun onProfileFailure(errorMsg: String) {
+                view?.showError(errorMsg)
+            }
+
+        })
     }
 
     override fun checkEmptyDate(birth: String): Boolean {
