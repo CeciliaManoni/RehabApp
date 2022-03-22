@@ -1,5 +1,6 @@
 package com.cecilia.apprehabilitacion.presentation.registerprofesional.view
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,7 @@ import com.cecilia.apprehabilitacion.presentation.institution.view.Institutionac
 import com.cecilia.apprehabilitacion.presentation.registerprofesional.RegisterProfesionalInterface
 import com.cecilia.apprehabilitacion.presentation.registerprofesional.presenter.RegisterProfesionalPresenter
 import kotlinx.android.synthetic.main.registerprofesional.*
+import java.util.*
 
 class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfView  {
 
@@ -26,6 +28,10 @@ class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfVie
             singUp()
         }
 
+        btn_calendar.setOnClickListener {
+            setDate()
+        }
+
         etxAddInstitution.setOnClickListener {
             addInstitution()
         }
@@ -38,6 +44,29 @@ class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfVie
 
     override fun addInstitution() {
         //name_institution.visibility = View.VISIBLE
+    }
+
+    override fun profileInformation() {
+        TODO("Not yet implemented")
+    }
+
+    override fun setDate() {
+        //val birth:String = txtBirthDay.text.toString().trim()
+        //presenter.setDate(birth)
+
+        //Objeto tipo calendar
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val dayOfMonth = c.get(Calendar.DAY_OF_MONTH)
+
+        //Generar la ventana desplegable con fechas a elegir
+        val dpd = DatePickerDialog(this,
+                    {view, year, month, dayOfMonth ->
+                        txtBirthDay.text = "$dayOfMonth-${month + 1}-$year"
+                    }, year, month, dayOfMonth)
+        dpd.show()
+
     }
 
     override fun singUp() {
@@ -53,7 +82,6 @@ class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfVie
             name_institution.error = "Campo vacío"
             name_profesional.error = "Campo vacío"
             id_profesional.error = "Campo vacío"
-            //txtBirthDay.error = "Campo vacío"
             return
         }
 
@@ -75,9 +103,15 @@ class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfVie
             return
         }
 
+        if (presenter.checkEmptyDate(birth)){
+            txtBirthDay.error = "Campo vacío"
+            return
+        }
+
        // name_institution.visibility = View.INVISIBLE
 
         presenter.singUp(fullname,email,psw1)
+        presenter.profileInformation()
     }
 
     override fun navigateToInstitution() {

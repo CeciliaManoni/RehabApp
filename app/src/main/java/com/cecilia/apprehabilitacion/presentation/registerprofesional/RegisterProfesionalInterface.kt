@@ -11,6 +11,8 @@ interface RegisterProfesionalInterface {
         fun singUp()
         fun navigateToInstitution()
         fun addInstitution()
+        fun profileInformation()
+        fun setDate()
     }
 
     interface RegisterProfPresenter{
@@ -18,6 +20,8 @@ interface RegisterProfesionalInterface {
         fun detachView()
         fun isViewAttached():Boolean
         fun singUp(fullname:String, email:String, password:String)
+        fun profileInformation()
+        fun checkEmptyDate(birth: String):Boolean
         fun checkEmptyFields(fullname: String, birth:String, id:String, inst:String):Boolean
         fun checkSpinnersContent(province:String, city:String, profesion:String, inst:String)
         fun checkValidEmail(email: String):Boolean

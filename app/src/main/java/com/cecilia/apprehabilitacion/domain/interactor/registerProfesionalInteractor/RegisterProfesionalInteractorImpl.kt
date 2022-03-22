@@ -4,12 +4,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 
 class RegisterProfesionalInteractorImpl: RegisterProfesionalInteractor {
-    override fun signUp(
-        fullname: String,
-        email: String,
-        password: String,
-        listener: RegisterProfesionalInteractor.RegisterCallback
-    ) {
+    override fun signUp(fullname: String, email: String,password: String,
+        listener: RegisterProfesionalInteractor.RegisterCallback) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password).addOnCompleteListener { itRegister ->
             if (itRegister.isSuccessful){
                 val profileUpdate:UserProfileChangeRequest = UserProfileChangeRequest.Builder()
@@ -25,5 +21,15 @@ class RegisterProfesionalInteractorImpl: RegisterProfesionalInteractor {
                 listener.onRegisterFailure(itRegister.exception?.message.toString())
             }
         }
+    }
+
+    override fun profileInformation(
+        fullname: String,
+        email: String,
+        password: String,
+        id: String,
+        listener: RegisterProfesionalInteractor.ProfileInformationCallback
+    ) {
+        TODO("Not yet implemented")
     }
 }
