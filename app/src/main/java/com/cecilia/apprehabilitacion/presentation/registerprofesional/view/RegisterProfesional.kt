@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import com.cecilia.apprehabilitacion.R
 import com.cecilia.apprehabilitacion.base.Base
 import com.cecilia.apprehabilitacion.domain.interactor.registerProfesionalInteractor.RegisterProfesionalInteractorImpl
@@ -42,6 +43,7 @@ class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfVie
             addInstitution()
         }
 
+        spinnerProvince()
     }
 
     override fun showError(msgError: String) {
@@ -70,6 +72,17 @@ class RegisterProfesional : Base(), RegisterProfesionalInterface.RegisterProfVie
                     }, year, month, dayOfMonth)
         dpd.show()
 
+    }
+
+    override fun spinnerProvince() {
+        val adapter = ArrayAdapter.createFromResource(this,
+            R.array.province,
+            android.R.layout.simple_spinner_item)
+        presenter.spinnerProvince(adapter, spinner_province)
+    }
+
+    override fun spinnerCity(province: String?) {
+        Toast(this, "llegue al sppiner city")
     }
 
     override fun singUp() {

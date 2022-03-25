@@ -32,14 +32,14 @@ class RegisterProfesionalInteractorImpl: RegisterProfesionalInteractor {
 
     override fun profileInformation(fullname: String, email: String, password: String, id: String, birth:String,
                                     listener: RegisterProfesionalInteractor.ProfileInformationCallback) {
-
-     /*   database = Firebase.database.reference
-        database.child("users").child(id).setValue(fullname)
+        var dic = mapOf(Pair("name", fullname), Pair ("birthday",birth), Pair("email",email))
+        database = Firebase.database.reference
+        database.child("profesional").child(id).setValue(dic)
             .addOnSuccessListener {
                 listener.onProfileSuccess()
             }
             .addOnFailureListener {
                 listener.onProfileFailure("Falló la carga")
             }
-    */}
+    }
 }

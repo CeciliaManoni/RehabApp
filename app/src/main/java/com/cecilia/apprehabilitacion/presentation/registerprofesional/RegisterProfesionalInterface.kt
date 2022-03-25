@@ -1,5 +1,6 @@
 package com.cecilia.apprehabilitacion.presentation.registerprofesional
 
+import android.widget.ArrayAdapter
 import android.widget.Spinner
 import com.cecilia.apprehabilitacion.domain.interactor.registerProfesionalInteractor.RegisterProfesionalInteractor
 import com.cecilia.apprehabilitacion.presentation.login.LoginInterface
@@ -13,6 +14,8 @@ interface RegisterProfesionalInterface {
         fun addInstitution()
         fun profileInformation()
         fun setDate()
+        fun spinnerProvince()
+        fun spinnerCity(province:String?)
     }
 
     interface RegisterProfPresenter{
@@ -27,5 +30,7 @@ interface RegisterProfesionalInterface {
         fun checkValidEmail(email: String):Boolean
         fun checkEmptyPasswordAndEmail(pw1:String, pw2:String, email: String):Boolean
         fun checkPasswordMatch(pw1: String, pw2:String):Boolean
+        fun spinnerProvince(adapter:ArrayAdapter<CharSequence>, spinner: Spinner)
+        fun spinnerCity()
     }
 }
